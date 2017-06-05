@@ -26,10 +26,10 @@ public class Palabra {
 	/**
 	 * 
 	 */
-	public String elegirPalabra() {
+	public void elegirPalabra() {
 		String[] palabras = { "Jirafa", "Perro", "Gato", "Gallo", "Elefante", "Rata", "Tortuga" };
 		String elegida = palabras[(int) (Math.round(Math.random() * (palabras.length - 1)))];
-		return elegida;
+		palabraOculta = elegida;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class Palabra {
 	public boolean comprobarSiGanado() {
 		boolean estanTodas = true;
 		char[] descompuesta = palabraOculta.toCharArray();
-		
+
 		for (int i = 0; i < descompuesta.length; i++) {
 			boolean estaEnDescubiertas = false;
 			for (int j = 0; j < letrasDescubiertas.length; j++) {
@@ -109,7 +109,7 @@ public class Palabra {
 				break;
 			}
 		}
-		
+
 		return estanTodas;
 	}
 
