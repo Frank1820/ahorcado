@@ -4,8 +4,7 @@
 
 package Ahorcado;
 
-import Ahorcado.Horca;
-import Ahorcado.Palabra;
+import java.util.Scanner;
 
 /************************************************************/
 /**
@@ -22,28 +21,51 @@ public class Partida {
 	public Palabra palabra;
 
 	/**
-	 * 
+	 * Muestra el estado de la horca y los resultados de palabra
 	 */
 	public void mostrarProgreso() {
+		horca.dibujar();
+		palabra.mostrarResultados();
 	}
 
 	/**
+	 * Solicita una letra al usuario
 	 * 
-	 * @return letra 
+	 * @return letra
 	 */
 	public char pedirLetra() {
+		Scanner entrada = new Scanner(System.in);
+		System.out.print("Introduce una letra: ");
+		char letra = entrada.nextLine().charAt(0);
+
+		return letra;
+
 	}
 
 	/**
+	 * Pide la respuesta y devuelve true si era la que buscabamos
 	 * 
+	 * @return palabra true si era la que busabamos o false en caso contrario
 	 */
-	public void resolver() {
+	public boolean resolver() {
+
+		Scanner entrada = new Scanner(System.in);
+		System.out.print("Introduce una letra: ");
+		return palabra.comprobarPalabra(entrada.nextLine());
+
 	}
 
 	/**
+	 * Comprueba tanto si hemos agotado los fallos como si hemos acertado todas
+	 * las letras
 	 * 
-	 * @return fin 
+	 * @return fin
 	 */
 	public boolean comprobarFinal() {
+
 	}
-};
+
+	public static void main(String[] args) {
+
+	}
+}

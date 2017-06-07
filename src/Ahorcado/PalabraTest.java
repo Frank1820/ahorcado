@@ -1,5 +1,6 @@
 package Ahorcado;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -19,7 +20,9 @@ public class PalabraTest {
 	@Test
 	public void testComprobarLetraUsada() {
 		palabraOculta.comprobarLetra('j');
+		palabraOculta.comprobarLetra('e');
 		assertTrue(palabraOculta.comprobarLetraUsada('j'));
+		assertFalse(palabraOculta.comprobarLetraUsada('h'));
 
 	}
 
