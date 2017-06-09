@@ -35,6 +35,7 @@ public class Partida {
 	 * @return letra
 	 */
 	public static char pedirLetra() {
+
 		Scanner entrada = new Scanner(System.in);
 		System.out.print("Introduce una letra: ");
 		char letra = entrada.nextLine().charAt(0);
@@ -67,12 +68,20 @@ public class Partida {
 	}
 
 	public static int elegirDelMenu() {
-		Scanner entrada = new Scanner(System.in);
-		System.out.println("Elige una opcion");
-		System.out.println("1. Letra");
-		System.out.println("2. Resolver");
-		System.out.println("3. Abandonar");
-		return entrada.nextInt();
+
+		try {
+
+			Scanner entrada = new Scanner(System.in);
+			System.out.println("Elige una opcion");
+			System.out.println("1. Letra");
+			System.out.println("2. Resolver");
+			System.out.println("3. Abandonar");
+			return entrada.nextInt();
+		} catch (Exception e) {
+			System.out.println("Introduce un número");
+
+			return elegirDelMenu();
+		}
 
 	}
 
